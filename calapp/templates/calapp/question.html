@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container text-center bg-warning" id="question_screen">
+    <h1 class="mt-5 pt-5 pb-5" id = "num">{{question_nums[0]}}</h1>
+</div>
+
+<script>
+    let str_nums = "{{question_nums|tojson}}";
+    str_nums = str_nums.replace("[", "");
+    str_nums = str_nums.replace("]", "");
+    let nums = str_nums.split(",");
+
+    console.log("str_nums:",str_nums);
+    console.log("nums:",nums);
+
+
+    cnt = 1;
+    document.body.onclick = function(){
+        if(cnt >= nums.length){                        //数字を全部表示していたら画面遷移
+            window.location.href="/result"
+        }
+        else{                                          //数字を表示してcntをインクリメントする
+            var elem = document.getElementById("num");
+            elem.innerText=nums[cnt];
+            cnt++;
+        }
+    }
+
+
+</script>
+{% endblock %}
