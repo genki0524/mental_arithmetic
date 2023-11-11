@@ -15,7 +15,7 @@
 
 
     cnt = 1;
-    document.body.onclick = function(){
+    document.body.onmouseup = function(){
         if(cnt >= nums.length){                        //数字を全部表示していたら画面遷移
             window.location.href="/result"
         }
@@ -25,6 +25,7 @@
             cnt++;
         }
     }
+
 
 
 </script>
